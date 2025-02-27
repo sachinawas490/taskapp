@@ -1,3 +1,3 @@
 export function handleResponse(res){
-    if(res.response.)
+    return 0;
 }

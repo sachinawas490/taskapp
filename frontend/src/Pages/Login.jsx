@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { url } from "../utils/data";
 import { handleError } from "../utils/errorHandling";
 import axios from "axios";
@@ -8,7 +8,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+  const navigate=useNavigate()
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -18,7 +18,14 @@ const Login = () => {
     console.log("Login Data:", formData);
     try {
         const response=await axios.post(`${url}/users/login`,formData)
-        console.log(response)
+       
+        if(response){
+            localStorage.setItem("userToken",response.data.token)
+
+            alert("login successfullly done")
+            navigate("/home")
+            
+        }
     } catch (error) {
         handleError(error)
     }
