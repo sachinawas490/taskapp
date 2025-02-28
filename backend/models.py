@@ -15,4 +15,4 @@ class login_user(BaseModel):
 class Todo(BaseModel):
     todo: str
     completed: bool = False
-    user_id: str=None  # Storing user_id as a string (ObjectId)
+    userid: str=None  # Storing user_id as a string (ObjectId)

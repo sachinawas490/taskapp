@@ -5,13 +5,15 @@ import Register from './Pages/Register';
 import Home from './Pages/Home';
 function App() {
   return (
-   <BrowserRouter>
+   <div className='text-white'>
+    <BrowserRouter>
    <Routes>
     <Route path='/' element={<Login/>}></Route>
     <Route path='/register' element={<Register/>}></Route>
     <Route path='/home' element={<Home/>}></Route>
    </Routes>
    </BrowserRouter>
+   </div>
   )
 }
 

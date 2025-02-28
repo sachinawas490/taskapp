@@ -10,7 +10,7 @@ from fastapi.security import OAuth2PasswordBearer
 
 def create_token(data:dict):
     copy_data=data.copy()
-    time_to_expire=datetime.utcnow()+timedelta(days=EXPIRE_DAY)
+    time_to_expire=datetime.utcnow()+timedelta(minutes=EXPIRE_DAY)
     copy_data['exp']=time_to_expire
     return jwt.encode(copy_data,SECRET_KEY,algorithm=ALGORITHM)
 
